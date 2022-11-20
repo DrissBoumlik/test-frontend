@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-posts',
@@ -16,7 +17,7 @@ export class UsersComponent implements OnInit {
   }
 
   getUsers() {
-    return this.http.get('http://localhost:8000/api/users')
+    return this.http.get(`${environment.apiURL}/users`)
       .subscribe((response: any) => {
         this.users = response.users;
         console.log(response);
