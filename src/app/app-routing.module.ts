@@ -1,19 +1,16 @@
-import { AppComponent } from './app.component';
+import { PostsComponent } from './posts/posts.component';
+import { UsersComponent } from './users/users.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CommonModule } from '@angular/common';
-
 
 const routes: Routes = [
-  { path: '', component: AppComponent }
+  { path: '', component: UsersComponent },
+  { path: 'users', component: UsersComponent },
+  { path: 'users/:user_id/posts', component: PostsComponent },
 ];
 
 @NgModule({
-  declarations: [],
-  imports: [
-    CommonModule,
-    RouterModule.forRoot(routes)
-],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

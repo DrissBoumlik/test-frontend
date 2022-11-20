@@ -1,0 +1,7 @@
+<ul>
+  <li *ngFor="let user of users">
+    <a routerLink="/users/{{ user.id }}/posts">
+      {{ user.name }}
+    </a>
+  </li>
+</ul>
