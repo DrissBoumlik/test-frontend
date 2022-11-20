@@ -17,7 +17,7 @@ export class AppComponent {
   }
 
   getPosts() {
-    return this.http.get('http://localhost:8000/api/posts')
+    return this.http.get('https://back.teacode.ma/api/posts')
       .subscribe((response: any) => {
         this.posts = response.posts;
         console.log(response);
