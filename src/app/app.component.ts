@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,19 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'front';
+  posts: any = [];
+
+  constructor(private http: HttpClient) { }
+
+  ngOnInit() {
+    this.getPosts();
+  }
+
+  getPosts() {
+    return this.http.get('http://localhost:8000/api/posts')
+      .subscribe((response: any) => {
+        this.posts = response.posts;
+        console.log(response);
+      });
+  }
 }
